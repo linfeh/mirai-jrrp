@@ -1,7 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="RunMiraiKt" type="JetRunConfigurationType" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="org.example.mirai.plugin.RunMiraiKt" />
-    <module name="mirai-console-plugin-template.test" />
+    <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Eclipse Adoptium/jdk-17.0.7.7-hotspot" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <option name="MAIN_CLASS_NAME" value="org.linfeh.mirai.jrrp.RunMiraiKt" />
+    <module name="linfeh.mirai.jrrp.test" />
     <shortenClasspath name="NONE" />
     <method v="2">
       <option name="Make" enabled="true" />

@@ -1,13 +1,13 @@
 plugins {
-    val kotlinVersion = "1.6.10"
+    val kotlinVersion = "1.8.22"
     kotlin("jvm") version kotlinVersion
     kotlin("plugin.serialization") version kotlinVersion
 
-    id("net.mamoe.mirai-console") version "2.13.2"
+    id("net.mamoe.mirai-console") version "2.16.0"
 }
 
-group = "org.example"
-version = "0.1.0"
+group = "org.linfeh"
+version = "1.0.0"
 
 repositories {
     if (System.getenv("CI")?.toBoolean() != true) {
