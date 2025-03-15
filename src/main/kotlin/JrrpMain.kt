@@ -7,12 +7,14 @@ import net.mamoe.mirai.event.events.GroupMessageEvent
 import net.mamoe.mirai.event.globalEventChannel
 import java.io.File
 import kotlin.random.Random
+import net.mamoe.mirai.contact.*
+import net.mamoe.mirai.message.data.*
 
 object JrrpMain : KotlinPlugin(
     JvmPluginDescription(
         id = "org.linfeh.mirai.jrrp",
         name = "mirai-jrrp",
-        version = "1.0.0"
+        version = "1.0.1"
     )
 ) {
     private val userJrrpValues = mutableMapOf<Long, Int>()
@@ -20,6 +22,7 @@ object JrrpMain : KotlinPlugin(
 
     // 配置文件路径
     private val configFile = File(dataFolder, "config.yml")
+
 
     override fun onEnable() {
         logger.info("Plugin loaded")
@@ -30,10 +33,18 @@ object JrrpMain : KotlinPlugin(
         globalEventChannel().subscribeAlways<GroupMessageEvent> {
             if (message.contentToString().startsWith("/jrrp")) {
                 // 处理群消息中的 /jrrp 指令
+
+                // 获取人品值和回复
                 val userId = sender.id
+                val userName = sender.nameCardOrNick
                 val jrrpValue = getJrrpValue(userId)
                 val reply = getJrrpReply(jrrpValue)
-                group.sendMessage("今天，${sender.nameCard}的人品值为：$jrrpValue，$reply")
+                // 构建消息链
+                val message = buildMessageChain {
+                    +At(sender)
+                    +PlainText("\n今天，$userName 的人品值为：$jrrpValue，$reply")
+                }
+                group.sendMessage(message)
             }
         }
 
