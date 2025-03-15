@@ -14,7 +14,7 @@ object JrrpMain : KotlinPlugin(
     JvmPluginDescription(
         id = "org.linfeh.mirai.jrrp",
         name = "mirai-jrrp",
-        version = "1.0.1"
+        version = "1.0.2"
     )
 ) {
     private val userJrrpValues = mutableMapOf<Long, Int>()

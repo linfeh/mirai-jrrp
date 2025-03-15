@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "org.linfeh"
-version = "1.0.1"
+version = "1.0.2"
 
 repositories {
     if (System.getenv("CI")?.toBoolean() != true) {
